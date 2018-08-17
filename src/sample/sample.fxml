@@ -2,7 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -24,10 +24,10 @@
       <Button fx:id="btn_bmm" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#brows_bmm" prefHeight="30.0" prefWidth="120.0" text="brows .bmm ..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button fx:id="btn_bit" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#brows_bit" prefHeight="30.0" prefWidth="120.0" text="brows  .bit ..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Button fx:id="btn_elf" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#brows_elf" prefHeight="30.0" prefWidth="120.0" text="brows .elf ..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Label fx:id="label_bmm" prefHeight="30.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <Label fx:id="label_bit" prefHeight="30.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <Label fx:id="label_elf" prefHeight="30.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-   <padding>
+    <TextField fx:id="txt_bit" maxHeight="30" maxWidth="300" text="please paste bit path" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    <TextField fx:id="txt_elf" maxHeight="30" maxWidth="300" text="please paste elf path" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+    <TextField fx:id="txt_bmm" maxHeight="30" maxWidth="300" prefWidth="120.0" text="please paste bmm path" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    <padding>
       <Insets />
    </padding>
 </GridPane>
