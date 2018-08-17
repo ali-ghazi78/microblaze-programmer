@@ -12,6 +12,7 @@ import javafx.scene.shape.Line;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.security.PublicKey;
@@ -26,14 +27,12 @@ public class Controller {
 
     }
     Scene scene=null;
-    Parent a;
-    FileChooser ff=new FileChooser();
+    JFileChooser ff=new JFileChooser();
     public void brows_elf(MouseEvent mouseEvent) throws IOException {
         label_elf.setText("clicked");
-        a = FXMLLoader.load(getClass().getResource("file_browser.fxml"));
         Stage stage = new Stage();
-        stage.show();
-        ff.showOpenDialog(stage);
+        ff.showOpenDialog(null);
+        label_elf.setText(ff.getSelectedFile().getName());
 
     }
 
