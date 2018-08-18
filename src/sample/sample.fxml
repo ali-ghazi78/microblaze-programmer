@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,7 +12,8 @@
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="179.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="545.0" minWidth="10.0" prefWidth="432.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="545.0" minWidth="10.0" prefWidth="328.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="545.0" minWidth="10.0" prefWidth="134.0" />
   </columnConstraints>
   <rowConstraints>
       <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
@@ -27,6 +29,9 @@
     <TextField fx:id="txt_bit" maxHeight="30" maxWidth="300" text="please paste bit path" GridPane.columnIndex="2" GridPane.rowIndex="2" />
     <TextField fx:id="txt_elf" maxHeight="30" maxWidth="300" text="please paste elf path" GridPane.columnIndex="2" GridPane.rowIndex="3" />
     <TextField fx:id="txt_bmm" maxHeight="30" maxWidth="300" prefWidth="120.0" text="please paste bmm path" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+   <CheckBox fx:id="check_box_bmm" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+   <CheckBox fx:id="check_box_bit" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+   <CheckBox fx:id="check_box_elf" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
     <padding>
       <Insets />
    </padding>
