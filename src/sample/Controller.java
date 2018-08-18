@@ -21,25 +21,33 @@ public class Controller {
 
     private int a=1;
 
-    public void creat_bit_mouse() throws IOException {
-//        String bit_path=path_maker(txt_bit.getText());
+    public void creat_bit_mouse() throws IOException, InterruptedException {
+
+        String bit_path=(txt_bit.getText());
+        String elf_path=(txt_elf.getText());
+        String bmm_path=(txt_bmm.getText());
+
+
+        //        String bit_path=path_maker(txt_bit.getText());
 //        String elf_path=path_maker(txt_elf.getText());
 //        String bmm_path=path_maker(txt_bmm.getText());
-        String bit_path;
-        String elf_path;
-        String bmm_path;
-        bit_path="a.bit";
-        elf_path="a.elf";
-        bmm_path="a.bmm";
+//        String bit_path;
+//        String elf_path;
+//        String bmm_path;
+//        bit_path="a.bit";
+//        elf_path="a.elf";
+//        bmm_path="a.bmm";
 
 //        JOptionPane.showMessageDialog(null,bit_path,"asd",JOptionPane.ERROR_MESSAGE);
 //        JOptionPane.showMessageDialog(null,bmm_path,"asd",JOptionPane.ERROR_MESSAGE);
 //        JOptionPane.showMessageDialog(null,elf_path,"asd",JOptionPane.ERROR_MESSAGE);
         //String str=(" data2mem -bm a.bmm -bd a.elf -bt a.bit -w");
-        String str=(" data2mem -bm "+ bmm_path+ " -bd " +elf_path+ " -bt " +bit_path +" -w");
+        String str=(" data2mem -bm "+"\""+ bmm_path+"\""+ " -bd " +"\""+elf_path+"\""+" -bt " +"\""+bit_path +"\""+"  -w");
+        JOptionPane.showMessageDialog(null,str,"asd",JOptionPane.ERROR_MESSAGE);
+
         Runtime cmd=Runtime.getRuntime();
         cmd.exec("cmd  /c start cmd.exe /K F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+str);
-        }
+    }
 
     public void initialize() throws IOException {
         if(a==1) {
