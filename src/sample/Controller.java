@@ -42,8 +42,9 @@ public class Controller {
 //        JOptionPane.showMessageDialog(null,bmm_path,"asd",JOptionPane.ERROR_MESSAGE);
 //        JOptionPane.showMessageDialog(null,elf_path,"asd",JOptionPane.ERROR_MESSAGE);
         //String str=(" data2mem -bm a.bmm -bd a.elf -bt a.bit -w");
-        String str=(" data2mem -bm "+"\""+ bmm_path+"\""+ " -bd " +"\""+elf_path+"\""+" -bt " +"\""+bit_path +"\""+"  -w");
-        JOptionPane.showMessageDialog(null,str,"asd",JOptionPane.ERROR_MESSAGE);
+        String str=(" data2mem -bm "+"\""+ bmm_path+"\""+ " -bd " +"\""+elf_path+"\""+" -bt " +"\""+bit_path +"\""+"  -w -o b \"C:\\Users\\ali\\Desktop\\New folder\\ouput.bit\"");
+        //JOptionPane.showMessageDialog(null,str,"asd",JOptionPane.ERROR_MESSAGE);
+
 
         Runtime cmd=Runtime.getRuntime();
         cmd.exec("cmd  /c start cmd.exe /K F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+str);
