@@ -1,6 +1,8 @@
 package sample;
 
 
+import com.sun.javafx.scene.layout.region.Margins;
+import com.sun.org.apache.xml.internal.security.algorithms.MessageDigestAlgorithm;
 import javafx.scene.control.*;
 
 import javafx.stage.DirectoryChooser;
@@ -24,6 +26,11 @@ public class Controller {
     public CheckBox check_box_setting64;
     public CheckBox check_box_out;
     public ComboBox combo_box_size;
+    public TextArea txt_area;
+    public Button create_bit;
+    public Button btn_prom;
+    public Button btn_all;
+
     public Controller() throws IOException {
 
 
@@ -76,7 +83,18 @@ public class Controller {
     }
     private int a=1;
     public void initialize() throws IOException {
+        if(check_box_bmm.isSelected()==false||check_box_elf.isSelected()==false||check_box_bit.isSelected()==false||check_box_setting64.isSelected()==false||check_box_out.isSelected()==false){
+            btn_all.setDisable(true);
+            btn_prom.setDisable(true);
+            create_bit.setDisable(true);
 
+        }
+        else
+        {
+            btn_all.setDisable(false);
+            btn_prom.setDisable(false);
+            create_bit.setDisable(false);
+        }
         if(a==1) {
             String [] combo=new String[14];
             for(int i=0;i<14;i++){
@@ -183,6 +201,12 @@ public class Controller {
 
 
     }
+    public void about(){
+        JOptionPane.showMessageDialog(null,"seyed ali ghazi asgar \n bio medical engineering\n amir kabir university of technology" +
+                "\n29 mordad 1397"
+                ,"about", JOptionPane.INFORMATION_MESSAGE);
+    }
+    int i=1;
     public void all() throws IOException {
         String promg_str=" promgen -w -p bin -c FF -o "+"\""+txt_out.getText()+"\\out \""+" -s "+ combo_box_size.getValue()+" -u 0 "+ "\""+txt_out.getText()+"\\out.bit \""+ " -spi";
         String data2mem_str=(" data2mem -bm "+"\""+ txt_bmm.getText()+"\""+ " -bd " +"\""+txt_elf.getText()+"\""+" -bt " +"\""+txt_bit.getText() +"\""+"  -w -o b \""+txt_out.getText()+"\\out.bit"+"\"");
@@ -191,7 +215,8 @@ public class Controller {
         cmd.exec(" \"" + txt_set64.getText() + "\" " +data2mem_str);
 
         cmd.exec(" \"" + txt_set64.getText() + "\" " +promg_str);
-
+        txt_area.setText(txt_area.getText()+Integer.toString(i)+":"+"done!"+"\n");
+        i++;
     }
     public void brows_bit() throws IOException {
         FileChooser ff=new FileChooser();
@@ -273,7 +298,7 @@ public class Controller {
         File p=new File(path);
 
         if(!p.exists()) {
-            JOptionPane.showMessageDialog(null,"incorrect path file","not found", JOptionPane.ERROR_MESSAGE);
+           // JOptionPane.showMessageDialog(null,"incorrect path file","not found", JOptionPane.ERROR_MESSAGE);
         }
         else {
             BufferedReader f = new BufferedReader(new FileReader(path));

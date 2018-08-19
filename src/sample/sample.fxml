@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefWidth="627.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox alignment="TOP_CENTER" prefWidth="627.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <GridPane alignment="BASELINE_RIGHT" maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" onMouseMoved="#initialize" prefHeight="400.0" prefWidth="600.0" styleClass="a">
+      <GridPane alignment="TOP_RIGHT" maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" onMouseMoved="#initialize" prefHeight="400.0" prefWidth="600.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="179.0" />
@@ -61,16 +61,17 @@
          <CheckBox fx:id="check_box_setting64" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
          <Label GridPane.columnIndex="1" GridPane.rowIndex="5" />
          <Button mnemonicParsing="false" onMouseClicked="#brows_out" prefHeight="31.0" prefWidth="147.0" text="select out folder" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-         <Button mnemonicParsing="false" onMouseClicked="#promgen" prefHeight="45.0" prefWidth="140.0" text="promgen" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-         <ComboBox fx:id="combo_box_size" prefHeight="52.0" prefWidth="90.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
+         <Button fx:id="btn_prom" mnemonicParsing="false" onMouseClicked="#promgen" prefHeight="45.0" prefWidth="140.0" text="promgen" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+         <ComboBox fx:id="combo_box_size" prefHeight="41.0" prefWidth="90.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
             <GridPane.margin>
             </GridPane.margin>
          </ComboBox>
          <Label prefHeight="21.0" prefWidth="103.0" text="flash size KB" GridPane.columnIndex="3" GridPane.rowIndex="7">
             <GridPane.margin>
             </GridPane.margin></Label>
-         <Button mnemonicParsing="false" onMouseClicked="#all" prefHeight="45.0" prefWidth="140.0" text="do all" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-         <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.rowSpan="3" />
+         <Button fx:id="btn_all" mnemonicParsing="false" onMouseClicked="#all" prefHeight="45.0" prefWidth="140.0" text="do all" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+         <TextArea fx:id="txt_area" maxHeight="174.0" maxWidth="315.0" minHeight="100.0" minWidth="100.0" prefHeight="160.0" prefWidth="315.0" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.rowSpan="3" />
+         <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="90.0" text="about!" GridPane.columnIndex="3" GridPane.rowIndex="9" />
 
 
           <padding>
