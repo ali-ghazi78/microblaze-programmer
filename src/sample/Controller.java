@@ -202,7 +202,7 @@ public class Controller {
 
     }
     public void about(){
-        JOptionPane.showMessageDialog(null,"seyed ali ghazi asgar \n bio medical engineering\n amir kabir university of technology" +
+        JOptionPane.showMessageDialog(null,"ali_gh70 \n bio medical engineering\n amir kabir university of technology" +
                 "\n29 mordad 1397"
                 ,"about", JOptionPane.INFORMATION_MESSAGE);
     }

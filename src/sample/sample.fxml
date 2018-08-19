@@ -71,7 +71,7 @@
             </GridPane.margin></Label>
          <Button fx:id="btn_all" mnemonicParsing="false" onMouseClicked="#all" prefHeight="45.0" prefWidth="140.0" text="do all" GridPane.columnIndex="1" GridPane.rowIndex="9" />
          <TextArea fx:id="txt_area" maxHeight="174.0" maxWidth="315.0" minHeight="100.0" minWidth="100.0" prefHeight="160.0" prefWidth="315.0" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.rowSpan="3" />
-         <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="90.0" text="about!" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+         <Button mnemonicParsing="false" onMouseClicked="#about" prefHeight="43.0" prefWidth="90.0" text="about!" GridPane.columnIndex="3" GridPane.rowIndex="9" />
 
 
           <padding>
