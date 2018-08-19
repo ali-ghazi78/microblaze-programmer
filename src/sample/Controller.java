@@ -1,8 +1,7 @@
 package sample;
 
 
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -24,14 +23,13 @@ public class Controller {
     public CheckBox check_box_elf;
     public CheckBox check_box_setting64;
     public CheckBox check_box_out;
-
+    public ComboBox combo_box_size;
     public Controller() throws IOException {
 
 
     }
 
     public void creat_bit_mouse() throws IOException, InterruptedException {
-
         String bit_path=(txt_bit.getText());
         String elf_path=(txt_elf.getText());
         String bmm_path=(txt_bmm.getText());
@@ -55,8 +53,9 @@ public class Controller {
         //JOptionPane.showMessageDialog(null,str,"asd",JOptionPane.ERROR_MESSAGE);
 
 
+
         Runtime cmd=Runtime.getRuntime();
-        cmd.exec("cmd  /c start cmd.exe /K F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+str);
+        cmd.exec("cmd  /c start cmd.exe  /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+str);
     }
     public void brows_setting64() throws IOException {
         FileChooser ff=new FileChooser();
@@ -73,12 +72,20 @@ public class Controller {
             printWriter.print(file.getPath());
             printWriter.close();
 
-
         }
     }
     private int a=1;
     public void initialize() throws IOException {
+
         if(a==1) {
+            String [] combo=new String[14];
+            for(int i=0;i<14;i++){
+                combo[i]=Integer.toString((int) Math.pow(2,i+4));
+
+            }
+            combo_box_size.getItems().addAll(combo);
+            combo_box_size.getSelectionModel().select(5);
+            //JOptionPane.showConfirmDialog(null,combo_box_size.getValue(),"a",JOptionPane.DEFAULT_OPTION);
             String path_read = this.read_path("bmm_path.text");
             if (path_read != null)
                 txt_bmm.setText(path_read);
@@ -133,6 +140,20 @@ public class Controller {
             check_box_out.setText("ok!");
         }
 
+
+    }
+    public void promgen() throws IOException {
+        String promg_str=" promgen -w -p bin -c FF -o "+"\""+txt_out.getText()+"\\out \""+" -s "+ combo_box_size.getValue()+" -u 0 "+ "\""+txt_out.getText()+"\\out.bit \""+ " -spi";
+        String data2mem_str=(" data2mem -bm "+"\""+ txt_bmm.getText()+"\""+ " -bd " +"\""+txt_elf.getText()+"\""+" -bt " +"\""+txt_bit.getText() +"\""+"  -w -o b \""+txt_out.getText()+"\\out.bit"+"\"");
+        Runtime cmd=Runtime.getRuntime();
+        cmd.exec("cmd  /c start cmd.exe  /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+promg_str);
+    }
+    public void all() throws IOException {
+        String promg_str=" promgen -w -p bin -c FF -o "+"\""+txt_out.getText()+"\\out \""+" -s "+ combo_box_size.getValue()+" -u 0 "+ "\""+txt_out.getText()+"\\out.bit \""+ " -spi";
+        String data2mem_str=(" data2mem -bm "+"\""+ txt_bmm.getText()+"\""+ " -bd " +"\""+txt_elf.getText()+"\""+" -bt " +"\""+txt_bit.getText() +"\""+"  -w -o b \""+txt_out.getText()+"\\out.bit"+"\"");
+        Runtime cmd=Runtime.getRuntime();
+        cmd.exec("cmd  /c start cmd.exe  /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+data2mem_str);
+        cmd.exec("cmd  /c start cmd.exe  /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+promg_str);
 
     }
     public void brows_bit() throws IOException {

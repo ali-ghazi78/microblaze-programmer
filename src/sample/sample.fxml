@@ -3,8 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -23,43 +23,47 @@
   </columnConstraints>
   <rowConstraints>
       <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="50.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="10.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="105.0" minHeight="4.0" prefHeight="59.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="105.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="105.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="105.0" minHeight="5.0" prefHeight="35.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="306.0" minHeight="0.0" prefHeight="12.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="306.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="55.0" minHeight="55.0" prefHeight="55.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="55.0" minHeight="55.0" prefHeight="55.0" vgrow="SOMETIMES" />
+
   </rowConstraints>
       <Button fx:id="btn_bmm" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#brows_bmm" prefHeight="30.0" prefWidth="120.0" text="brows .bmm ..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button fx:id="btn_bit" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#brows_bit" prefHeight="30.0" prefWidth="120.0" text="brows  .bit ..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Button fx:id="btn_elf" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#brows_elf" prefHeight="30.0" prefWidth="120.0" text="brows .elf ..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Button fx:id="btn_s64br" maxHeight="30.0" maxWidth="150.0" minHeight="30.0" minWidth="120.0" mnemonicParsing="false" onMouseClicked="#brows_setting64" prefHeight="30.0" prefWidth="150.0" text="brows settings64" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-    <TextField fx:id="txt_bit" maxHeight="30" maxWidth="300" text="please paste bit path" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-    <TextField fx:id="txt_elf" maxHeight="30" maxWidth="300" text="please paste elf path" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-    <TextField fx:id="txt_bmm" maxHeight="30" maxWidth="300" text="please paste bmm path" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-    <TextField fx:id="txt_set64" maxHeight="30" maxWidth="300" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-    <TextField fx:id="txt_out" maxHeight="30" maxWidth="300" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+    <TextField fx:id="txt_bit" editable="false" maxHeight="30" maxWidth="300" text="please paste bit path" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    <TextField fx:id="txt_elf" editable="false" maxHeight="30" maxWidth="300" text="please paste elf path" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+    <TextField fx:id="txt_bmm" editable="false" maxHeight="30" maxWidth="300" text="please paste bmm path" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    <TextField fx:id="txt_set64" editable="false" maxHeight="30" maxWidth="300" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+    <TextField fx:id="txt_out" editable="false" maxHeight="30" maxWidth="300" GridPane.columnIndex="2" GridPane.rowIndex="5" />
     <CheckBox fx:id="check_box_bmm" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
    <CheckBox fx:id="check_box_bit" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
    <CheckBox fx:id="check_box_elf" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
     <CheckBox fx:id="check_box_out" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="5" />
 
-    <Button fx:id="create_bit" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onMouseClicked="#creat_bit_mouse" prefHeight="45.0" prefWidth="126.0" text="creat bit(data2mem)" GridPane.columnIndex="1" GridPane.rowIndex="11">
+    <Button fx:id="create_bit" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onMouseClicked="#creat_bit_mouse" prefHeight="47.0" prefWidth="391.0" text="creat bit(data2mem)" GridPane.columnIndex="2" GridPane.rowIndex="7">
       <font>
          <Font />
       </font></Button>
-   <ProgressBar maxWidth="300.0" minWidth="300.0" prefHeight="45.0" prefWidth="300.0" progress="0.0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-   <Separator minWidth="560.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+   <Separator minWidth="560.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
    <CheckBox fx:id="check_box_setting64" disable="true" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
    <Label GridPane.columnIndex="1" GridPane.rowIndex="5" />
    <Button mnemonicParsing="false" onMouseClicked="#brows_out" prefHeight="31.0" prefWidth="147.0" text="select out folder" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+   <Button mnemonicParsing="false" onMouseClicked="#promgen" prefHeight="50.0" prefWidth="344.0" text="promgen" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+   <ComboBox fx:id="combo_box_size" prefHeight="52.0" prefWidth="108.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+      <GridPane.margin>
+         <Insets />
+      </GridPane.margin>
+   </ComboBox>
+   <Label text="flash size kByte" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+   <Button mnemonicParsing="false" onMouseClicked="#all" prefHeight="55.0" prefWidth="422.0" text="do all" GridPane.columnIndex="2" GridPane.rowIndex="9" />
 
     
     <padding>
