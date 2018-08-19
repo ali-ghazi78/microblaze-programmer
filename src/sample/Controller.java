@@ -145,15 +145,41 @@ public class Controller {
     public void promgen() throws IOException, InterruptedException {
         String promg_str="  promgen -w -p bin -c FF -o "+"\""+txt_out.getText()+"\\out \""+" -s "+ combo_box_size.getValue()+" -u 0 "+ "\""+txt_out.getText()+"\\out.bit \""+ " -spi";
         String data2mem_str=(" data2mem -bm "+"\""+ txt_bmm.getText()+"\""+ " -bd " +"\""+txt_elf.getText()+"\""+" -bt " +"\""+txt_bit.getText() +"\""+"  -w -o b \""+txt_out.getText()+"\\out.bit"+"\"");
-        Runtime cmd=Runtime.getRuntime();
+       // Runtime cmd=Runtime.getRuntime();
 
-        Process proc= cmd.exec(" \"" + txt_set64.getText() + "\" "+ promg_str );
+        //Process proc= cmd.exec(" \"" + txt_set64.getText() + "\" "+ promg_str );
         //proc.waitFor();
 
-//        BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+//        BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
 //
 //        String s=stdInput.readLine();
 //        System.out.println(s);
+//        s=stdInput.readLine();
+//        System.out.println(s);
+//        s=stdInput.readLine();
+//        System.out.println(s);
+
+
+
+
+
+
+
+        ProcessBuilder run = new ProcessBuilder("CMD","/c","\"" + txt_set64.getText() + "\" "+ promg_str);
+        //ProcessBuilder run = new ProcessBuilder("cmd","/c","dir");
+
+        run.redirectErrorStream(false);
+
+        Process p = run.start();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+
+            for (String output = br.readLine(); output != null; output = br.readLine()) {
+                System.out.println(output);
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
 
 
     }
