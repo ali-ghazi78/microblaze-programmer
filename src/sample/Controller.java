@@ -55,7 +55,7 @@ public class Controller {
 
 
         Runtime cmd=Runtime.getRuntime();
-        cmd.exec("cmd  /c start cmd.exe  /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+str);
+        cmd.exec("cmd   /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+str);
     }
     public void brows_setting64() throws IOException {
         FileChooser ff=new FileChooser();
@@ -142,18 +142,27 @@ public class Controller {
 
 
     }
-    public void promgen() throws IOException {
-        String promg_str=" promgen -w -p bin -c FF -o "+"\""+txt_out.getText()+"\\out \""+" -s "+ combo_box_size.getValue()+" -u 0 "+ "\""+txt_out.getText()+"\\out.bit \""+ " -spi";
+    public void promgen() throws IOException, InterruptedException {
+        String promg_str="  promgen -w -p bin -c FF -o "+"\""+txt_out.getText()+"\\out \""+" -s "+ combo_box_size.getValue()+" -u 0 "+ "\""+txt_out.getText()+"\\out.bit \""+ " -spi";
         String data2mem_str=(" data2mem -bm "+"\""+ txt_bmm.getText()+"\""+ " -bd " +"\""+txt_elf.getText()+"\""+" -bt " +"\""+txt_bit.getText() +"\""+"  -w -o b \""+txt_out.getText()+"\\out.bit"+"\"");
         Runtime cmd=Runtime.getRuntime();
-        cmd.exec("cmd  /c start cmd.exe  /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+promg_str);
+
+        Process proc= cmd.exec("F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+promg_str);
+        //proc.waitFor();
+
+        BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+
+        String s=stdInput.readLine();
+        System.out.println(s);
+
+
     }
     public void all() throws IOException {
         String promg_str=" promgen -w -p bin -c FF -o "+"\""+txt_out.getText()+"\\out \""+" -s "+ combo_box_size.getValue()+" -u 0 "+ "\""+txt_out.getText()+"\\out.bit \""+ " -spi";
         String data2mem_str=(" data2mem -bm "+"\""+ txt_bmm.getText()+"\""+ " -bd " +"\""+txt_elf.getText()+"\""+" -bt " +"\""+txt_bit.getText() +"\""+"  -w -o b \""+txt_out.getText()+"\\out.bit"+"\"");
         Runtime cmd=Runtime.getRuntime();
-        cmd.exec("cmd  /c start cmd.exe  /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+data2mem_str);
-        cmd.exec("cmd  /c start cmd.exe  /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+promg_str);
+        cmd.exec("cmd    /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+data2mem_str);
+        cmd.exec("cmd   /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+promg_str);
 
     }
     public void brows_bit() throws IOException {
