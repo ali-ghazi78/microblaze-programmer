@@ -147,13 +147,13 @@ public class Controller {
         String data2mem_str=(" data2mem -bm "+"\""+ txt_bmm.getText()+"\""+ " -bd " +"\""+txt_elf.getText()+"\""+" -bt " +"\""+txt_bit.getText() +"\""+"  -w -o b \""+txt_out.getText()+"\\out.bit"+"\"");
         Runtime cmd=Runtime.getRuntime();
 
-        Process proc= cmd.exec("F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+promg_str);
+        Process proc= cmd.exec(" \"" + txt_set64.getText() + "\" "+ promg_str );
         //proc.waitFor();
 
-        BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-
-        String s=stdInput.readLine();
-        System.out.println(s);
+//        BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+//
+//        String s=stdInput.readLine();
+//        System.out.println(s);
 
 
     }
@@ -161,8 +161,10 @@ public class Controller {
         String promg_str=" promgen -w -p bin -c FF -o "+"\""+txt_out.getText()+"\\out \""+" -s "+ combo_box_size.getValue()+" -u 0 "+ "\""+txt_out.getText()+"\\out.bit \""+ " -spi";
         String data2mem_str=(" data2mem -bm "+"\""+ txt_bmm.getText()+"\""+ " -bd " +"\""+txt_elf.getText()+"\""+" -bt " +"\""+txt_bit.getText() +"\""+"  -w -o b \""+txt_out.getText()+"\\out.bit"+"\"");
         Runtime cmd=Runtime.getRuntime();
-        cmd.exec("cmd    /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+data2mem_str);
-        cmd.exec("cmd   /c F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+promg_str);
+
+        cmd.exec(" \"" + txt_set64.getText() + "\" " +data2mem_str);
+
+        cmd.exec(" \"" + txt_set64.getText() + "\" " +promg_str);
 
     }
     public void brows_bit() throws IOException {
