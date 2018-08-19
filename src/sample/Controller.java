@@ -4,9 +4,11 @@ package sample;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 
 import java.io.*;
 
@@ -15,11 +17,13 @@ public class Controller {
     public TextField txt_bit;
     public TextField txt_elf;
     public TextField txt_bmm;
+    public TextField txt_set64;
+    public TextField txt_out;
     public CheckBox check_box_bmm;
     public CheckBox check_box_bit;
     public CheckBox check_box_elf;
-
-    private int a=1;
+    public CheckBox check_box_setting64;
+    public CheckBox check_box_out;
 
     public void creat_bit_mouse() throws IOException, InterruptedException {
 
@@ -49,11 +53,27 @@ public class Controller {
         Runtime cmd=Runtime.getRuntime();
         cmd.exec("cmd  /c start cmd.exe /K F:\\xilinx\\embeded_development_kit\\14.7\\ISE_DS\\settings64.bat "+str);
     }
+    public void brows_setting64() throws IOException {
+        FileChooser ff=new FileChooser();
+        Stage stage=new Stage();
+        ff.setTitle("select settings64.bat file");
+        FileChooser.ExtensionFilter myFilter=new FileChooser.ExtensionFilter("settings64.bat","settings64.bat","settings32.bat");
+        ff.getExtensionFilters().add(myFilter);
 
+        File file=ff.showOpenDialog(stage);
+        if(file!=null) {
+            txt_set64.setText(file.getPath());
+            FileWriter fileWriterPath=new FileWriter("settings64_path.text");
+            PrintWriter printWriter=new PrintWriter(fileWriterPath);
+            printWriter.print(file.getPath());
+            printWriter.close();
+
+
+        }
+    }
+    private int a=1;
     public void initialize() throws IOException {
         if(a==1) {
-            //JOptionPane.showMessageDialog(null, "initilize", "a", JOptionPane.WARNING_MESSAGE);
-
             String path_read=this.read_path("bmm_path.text");
             if(path_read!=null)
                 txt_bmm.setText(path_read);
@@ -70,6 +90,18 @@ public class Controller {
                 txt_bit.setText(path_read);
             else
                 txt_bit.setText("please open a file");
+
+            path_read=this.read_path("settings64_path.text");
+            if(path_read!=null&&path_read!="\n")
+                txt_set64.setText(path_read);
+            else
+                txt_set64.setText("please open a file");
+            path_read=this.read_path("out_path.text");
+            if(path_read!=null&&path_read!="\n")
+                txt_out.setText(path_read);
+            else
+                txt_out.setText("please open a file");
+
             a=10;
         }
         if(!txt_bit.getText().equals("please open a file")){
@@ -83,8 +115,17 @@ public class Controller {
         if(!txt_bmm.getText().equals("please open a file")){
             check_box_bmm.setSelected(true);
             check_box_bmm.setText("ok!");
-
         }
+        if(!txt_set64.getText().equals("please open a file")){
+            check_box_setting64.setSelected(true);
+            check_box_setting64.setText("ok!");
+        }
+        if(!txt_out.getText().equals("please open a file")){
+            check_box_out.setSelected(true);
+            check_box_out.setText("ok!");
+        }
+        MaskFormatter formatter=new MaskFormatter();
+        formatter.setValidCharacters("qwertyuiopasdfghjklzxcvbnm_1234567890QWERTYUIOPLKJHGFDSAZXCVBNM");
     }
     public void brows_bit() throws IOException {
         FileChooser ff=new FileChooser();
@@ -104,6 +145,24 @@ public class Controller {
 
         }
 
+    }
+    public void brows_out() throws IOException {
+        Stage stage=new Stage();
+        DirectoryChooser chooser = new DirectoryChooser();
+        chooser.setTitle("JavaFX Projects");
+        File defaultDirectory = new File("c:\\users\\ali\\desktop");
+        chooser.setInitialDirectory(defaultDirectory);
+        File selectedDirectory = chooser.showDialog(stage);
+
+
+        if(selectedDirectory!=null) {
+            FileWriter fileWriterPath=new FileWriter("out_path.text");
+            PrintWriter printWriter=new PrintWriter(fileWriterPath);
+            printWriter.print(selectedDirectory.getPath());
+            printWriter.close();
+            JOptionPane.showMessageDialog(null,selectedDirectory.getPath(),"output destination folder",JOptionPane.INFORMATION_MESSAGE);
+            txt_out.setText(selectedDirectory.getPath());
+        }
     }
     public void brows_elf() throws IOException {
         FileChooser ff=new FileChooser();
