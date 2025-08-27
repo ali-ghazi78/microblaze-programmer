@@ -27,10 +27,6 @@ The tool helps combine `.elf`, `.bmm`, and `.bit` files into a final FPGA bitstr
   - Handles all GUI logic (buttons, file choosers, checkboxes, running commands).  
 - **`Main.java`**  
   - JavaFX entry point, loads `sample.fxml`, sets up the main window.  
-- **`sample.fxml`**  
-  - Defines the GUI layout (not included in your snippet but referenced in code).  
-- **`icon.png`**  
-  - Window icon.  
 
 ---
 
